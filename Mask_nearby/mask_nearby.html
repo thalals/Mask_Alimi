@@ -8,7 +8,7 @@
     <link href="./mask_nearby.css" rel="stylesheet">
 
     <!-- fontw awesome cdn 아이콘 포트 사용하기위한 경로입니다 -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" />
 
 </head>
 
@@ -16,18 +16,20 @@
     <header>
         <div id="nav"></div>
         <div class="back-btn-wrapper">
-            <i calss="fa fa-chevron-left" aria-hidden="true"></i>
+            <a href="#">
+                <i calss="fas fa-arrow-left" aria-hidden="true"></i>
         </div>
         </div>
     </header>
 
     <section>
         <div id="main">
+
             <div class="serach-bar-positon">
                 <div class="search-bar-wrapper">
                     <input type="text" id="search-bar" placeholder="목적지를 검색하세요">
                     <div class="search-btn">
-                        <i calss="fa fa-search" aria-hidden="true"></i>
+                        <i calss="fas fa-search" aria-hidden="true"></i>
                     </div>
                 </div>
 
@@ -41,8 +43,8 @@
         </div>
     </section>
 
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=68c4dd4493e9a8de93e6ebb024d38d2f">
-    </script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=68c4dd4493e9a8de93e6ebb024d38d2f"></script>
+    
     <script type="text/javascript" src="./mask_nearby.js"></script>
 
 </body>

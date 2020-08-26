@@ -106,4 +106,5 @@ body {
 .search-btn>i {
     color: skyblue;
     font-size: 25px;
+    z-index: 5;
 }

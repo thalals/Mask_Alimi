@@ -6,15 +6,17 @@ var options = { //지도를 생성할 때 필요한 기본 옵션
 
 var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 var ps = new kakao.maps.services.Places();
+let base_mask_url = "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/storesByGeo/json?" // 마스크 데이터 API 주소
 
 
 //버튼을 누르거나 엔터를 눌렀을때 검색이 되도록 만들기
 let search_btn = document.querySelector(".search-btn");
 let search_bar = document.querySelector("#search-bar");
+
 console.log(search_bar);
 console.log(search_btn);
 
-search_btn.addEventListener("click", () => {
+search_btn.addEventListener("click()", () => {
     let keyword = search_bar.nodeValue;
     if (keyword) {
         console.log(keyword + " 검색하셨습니다");
@@ -26,7 +28,7 @@ search_btn.addEventListener("click", () => {
 
 search_bar.addEventListener("keyup", () => {
     //keyword 13 =Enter key
-    if (event.keyword == 13) {
+    if (window.event.keyCode == 13) {
         search_btn.click();
     }
 })
@@ -49,7 +51,9 @@ function keywordSearchCallback(data, status, pagination) {
         InfoWindowPage(data[0].y, data[0].x);
         marker.setMap(map);
         map.setCenter(center);
-        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-        // LatLngBounds 객체에 좌표를 추가합니다
     }
+}
+
+function InfoWindowPage() {
+
 }
