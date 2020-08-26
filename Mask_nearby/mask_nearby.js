@@ -8,6 +8,8 @@ var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리
 var ps = new kakao.maps.services.Places();
 let base_mask_url = "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/storesByGeo/json?" // 마스크 데이터 API 주소
 
+var marker = undefined;
+var comment = undefined;
 
 //버튼을 누르거나 엔터를 눌렀을때 검색이 되도록 만들기
 let search_btn = document.querySelector(".search-btn");
@@ -16,10 +18,11 @@ let search_bar = document.querySelector("#search-bar");
 console.log(search_bar);
 console.log(search_btn);
 
-search_btn.addEventListener("click()", () => {
-    let keyword = search_bar.nodeValue;
+search_btn.addEventListener("click", () => {
+    let keyword = search_bar.value;
     if (keyword) {
         console.log(keyword + " 검색하셨습니다");
+        comment = prompt("정보를 적어보세요")
         keywordSearch(keyword);
     } else {
         alert("검색어를 입력해주세요.");
@@ -54,6 +57,11 @@ function keywordSearchCallback(data, status, pagination) {
     }
 }
 
-function InfoWindowPage() {
 
+function InfoWindowPage() {
+    infoWindow = new kakao.maps.InfoWindow({
+        content: comment
+    });
+
+    infoWindow.open(map, marker);
 }
